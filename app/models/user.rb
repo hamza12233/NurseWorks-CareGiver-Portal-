@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :start_date, :end_date
 
-  ThinkingSphinx::Callbacks.append(
-        self, :behaviours => [:real_time]
-    )
+  # ThinkingSphinx::Callbacks.append(
+  #       self, :behaviours => [:real_time]
+  #   )
 
   validates :first_name, :last_name, :email, :phone, presence: true
   # Include default devise modules. Others available are:

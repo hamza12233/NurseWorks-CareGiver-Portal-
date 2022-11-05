@@ -1,9 +1,9 @@
 class SupportRequest < ApplicationRecord
     attr_accessor :support_request_type__id
 
-    ThinkingSphinx::Callbacks.append(
-        self, :behaviours => [:real_time]
-    )
+    # ThinkingSphinx::Callbacks.append(
+    #     self, :behaviours => [:real_time]
+    # )
 
     TYPES =[
         "Time off notification",
