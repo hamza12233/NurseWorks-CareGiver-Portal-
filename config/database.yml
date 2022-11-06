@@ -9,9 +9,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   username: root
-  password: password
+  # password: password
   socket: /var/lib/mysqld/mysqld.sock
-
   host: localhost
   # port: 3306
 
@@ -23,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-#   database: NurseWorks_Staging
+  # database: NurseWorks_development
   # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
 
