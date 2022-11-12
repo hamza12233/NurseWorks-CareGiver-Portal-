@@ -8,10 +8,10 @@ default: &default
   development:
   adapter: mysql2
   encoding: utf8
-  username: root
-  # password: password
-  socket: /var/lib/mysqld/mysqld.sock
-  host: localhost
+  username: zair
+  password: root
+  # socket: /var/lib/mysqld/mysqld.sock
+  host: localhos
   # port: 3306
 
   flags:
@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  # database: NurseWorks_development
+  database: NurseWorks_development
   # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
 
@@ -41,5 +41,6 @@ staging:
 
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   password: password
   database: NurseWorks_Staging
