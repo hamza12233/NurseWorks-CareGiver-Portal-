@@ -8,10 +8,9 @@ default: &default
   development:
   adapter: mysql2
   encoding: utf8
-  username: zair
-  password: root
-  socket: /var/lib/mysqld/mysqld.sock
-  host: localhost
+  username: <%= ENV.fetch("DB_USER", "zair") %>
+  password: <%= ENV.fetch("DB_PASS", "root") %>
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
   # port: 3306
 
   flags:
@@ -41,6 +40,7 @@ staging:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  password: password
-  database: NurseWorks_Staging
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ((key = ENV.keys.find { |k| k =~ /^CLEARDB_([A-Z]+)_URL$/ && k != "CLEARDB_DATABASE_URL" }) && ENV[key].sub("mysql://", "mysql2://")) || ENV.fetch('DATABASE_URL') %>
