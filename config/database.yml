@@ -11,7 +11,7 @@ default: &default
   username: zair
   password: root
   # socket: /var/lib/mysqld/mysqld.sock
-  host: localhos
+  host: localhost
   # port: 3306
 
   flags:
