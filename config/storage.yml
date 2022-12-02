@@ -11,9 +11,8 @@ amazon:
   service: S3
   access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-  region: ap-south-1
-  bucket: <%=Rails.env%>-nurseworks-attachments
-
+  region: us-west-1
+  bucket: <%=Rails.env%>.caregiverportal.lcnurseworks
 # mirror:
 #   service: Mirror
 #   primary: local
