@@ -1,9 +1,5 @@
 class UserDoc < ApplicationRecord
 
-    # ThinkingSphinx::Callbacks.append(
-    #     self, :behaviours => [:real_time]
-    # )
-
     TYPES = [
         "Drivers License",
         "SSN card",

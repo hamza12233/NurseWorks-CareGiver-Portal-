@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+    include ApplicationHelper
+    
     before_action :authenticate_user!
     before_action :set_search_controller
     before_action :configure_permitted_parameters, if: :devise_controller?

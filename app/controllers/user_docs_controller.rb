@@ -15,15 +15,14 @@ class UserDocsController < ApplicationController
   end
 
   def search
-    if current_user.role == "Manager"
-      @user_docs = UserDoc.search(params[:query])
-    else
-      @user_docs = UserDoc.search(params[:query], :with => {:user_id => current_user.id})
+    conditions = []
+    if params[:query].present?
+      conditions = user_docs_global_search_helper(params[:query])
     end
-
+    @user_docs = UserDoc.joins(:user).accessible_by(current_ability)
+    @user_docs = @user_docs.where(conditions).order(created_at: :desc).page(params[:page])
     render "index"
   end
-
 
   # GET /user_docs/1 or /user_docs/1.json
   def show

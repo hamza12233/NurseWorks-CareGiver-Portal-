@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'cancancan'
-gem 'thinking-sphinx'
+# gem 'thinking-sphinx'
 gem "letter_opener", :group => :development
 gem 'dotenv-rails'
 gem 'delayed_job_active_record'

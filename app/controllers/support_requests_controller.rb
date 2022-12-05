@@ -21,12 +21,11 @@ class SupportRequestsController < ApplicationController
   end
 
   def search
-    if current_user.role == "Manager"
-      @support_requests = SupportRequest.search(params[:query])
-    else
-      @support_requests = SupportRequest.search(params[:query], :with => {:id => current_user.id})
+    conditions = []
+    if params[:query].present?
+      conditions = sr_global_search_helper(params[:query])
     end
-
+    @support_requests = SupportRequest.includes(:user).where(conditions).accessible_by(current_ability).order(created_at: :desc).page(params[:page])
     render "index"
   end
 

@@ -48,14 +48,5 @@ module RailsBootstrap
       :enable_starttls_auto => true
     }
 
-
-    Rails.application.config.middleware.use ExceptionNotification::Rack,
-        email: {
-          deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-          email_prefix: '[Error:] ',
-          sender_address: %{"Support" <#{ENV['SUPPORT_EMAIL']}>},
-          exception_recipients: %{"ERROR" <#{ENV['ERROR_EMAIL']}>}
-        }
-
   end
 end

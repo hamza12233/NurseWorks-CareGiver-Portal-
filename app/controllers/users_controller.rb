@@ -28,13 +28,11 @@ class UsersController < ApplicationController
   end
 
   def search
-
-    if current_user.role == "Admin"
-      @users = User.search(params[:query])
-    else
-      @users = User.search(params[:query], :with => {:id => current_user.id})
+    conditions = []
+    if params[:query].present?
+      conditions = user_global_search_helper(params[:query])
     end
-
+    @users = User.where(conditions).accessible_by(current_ability).order(created_at: :desc).page(params[:page])
     render "index"
   end
 
