@@ -1,4 +1,9 @@
+
+$('#req-doc').trigger('click');
+
 document.addEventListener("turbolinks:load", function() {
+  $('#req-doc').trigger('click');
+
   $(function() {
     var support_request_type_id = $('#support_request_support_request_type__id').val()
     var startDate = $('.start-date')[0];
@@ -21,3 +26,4 @@ document.addEventListener("turbolinks:load", function() {
     });
   });
 });
+   
