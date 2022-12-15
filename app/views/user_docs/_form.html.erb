@@ -13,7 +13,7 @@
 
   <div class="field" class="form-group">
     <%= form.label :document_type %>
-    <%= form.select :document_type_id, DocumentType.pluck(:name,:id) || UserDoc::TYPES, {}, class: "form-control" %>
+    <%= form.select(:document_type_id, options_for_select((DocumentType.pluck(:name,:id) || UserDoc::TYPES), DocumentType.find_by(name: params[:doc_type]).id),{include_blank: "Select Document Type"}, {required: true, class: "form-control"}) %>
   </div>
 
   <div class="field" class="form-group">
@@ -23,7 +23,7 @@
 
   <div class="field" class="form-group">
     <%= form.label :attachment %>
-    <%= form.file_field :attachment, class: "form-control" %>
+    <%= form.file_field :attachment, required: true, class: "form-control" %>
   </div>
 
 
