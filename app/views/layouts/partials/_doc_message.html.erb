@@ -17,7 +17,7 @@
                     <p>Please click on each link below and upload them to complete your profile on Care Mountain portal:</p>
                     <br><hr>
                     <% if @req_dp %>
-                        <li><%= link_to("Profile Picture ", edit_user_doc_path(current_user.id), class: "") %></li>
+                        <li class="ml-4 mt-3"><%= link_to("Profile Picture ", edit_user_doc_path(current_user.id), class: "") %></li>
                     <% end %>
                     <ul class="list-disc ml-4 mt-3">
                         <% @req_doc.each do |att|%>
