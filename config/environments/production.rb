@@ -101,7 +101,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.default_url_options = { host: "http://app.caremountain.com" }
+config.action_mailer.default_url_options = { host: "https://app.caremountain.com" }
 
   ActionMailer::Base.smtp_settings = {
   domain: ENV['SUPPORT_EMAIL'],
