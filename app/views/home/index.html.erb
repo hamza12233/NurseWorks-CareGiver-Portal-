@@ -1,7 +1,10 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-3 text-gray-800 mb-md-0 font-bold">CARE MOUNTAIN DASHBOARD</h1>
-                        <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary" %>
+                        <div class="dashboard-btn-block-top">
+                            <%= link_to 'New Support Request', new_support_request_path, class: "btn btn-primary mr-2" %>
+                            <%= render "layouts/partials/doc_message" %>
+                        </div>
                     </div>
 
                     <!-- Content Row -->
@@ -183,7 +186,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p>Instructions on clocking in and out of shift</p>
-                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="http://52.52.44.221/img/cg_clock.pdf">Clocking in and out Instructions
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href=<%="#{root_url}files/clock_in_and_clock_out.pdf"%>>Clocking in and out Instructions
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -201,7 +204,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p>Download Current Caregiver Contractor Handbook</p>
-                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href="http://52.52.44.221/img/cm_caregiver_contractor_handbook.pdf">Caregiver Contractor Handbook
+                                    <a class="btn btn-primary btn-lg" target="_blank" rel="nofollow" href=<%="#{root_url}files/caregiver_contractor_handbook.pdf"%>>Caregiver Contractor Handbook
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -235,4 +238,4 @@
                                 </div>
                             </div>
                     </div>
-                    <%= render "layouts/partials/doc_message" %>
+                    

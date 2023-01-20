@@ -19,6 +19,17 @@
  @import "./actiontext.scss";
  @import "simple_calendar";
 
+ .modal-title-main{
+    font-size: 20px;
+    font-weight: bolder;
+ }
+
+ @media only screen and (max-width: 935px) {
+    .dashboard-btn-block-top{
+        display: flex;
+    }
+ }
+
 .profile_pic {
      max-width: 200px;
      max-height: 400px;

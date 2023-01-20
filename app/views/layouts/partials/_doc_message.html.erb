@@ -9,7 +9,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header justify-content-center">
-                    <h5 class="modal-title" id="exampleModalLabel">Need Your Attention</h5>
+                    <h3 class="modal-title modal-title-main" id="exampleModalLabel">Need Your Attention</h3>
                 </div>
                 <div class="modal-body">
                     <p>Some things are missing! Please upload your document(s).</p>
@@ -17,14 +17,19 @@
                     <p>Please click on each link below and upload them to complete your profile on Care Mountain portal:</p>
                     <br><hr>
                     <% if @req_dp %>
-                        <li class="ml-4 mt-3"><%= link_to("Profile Picture ", edit_user_path(current_user.id), class: "") %></li>
+                        <ul class="list-disc ml-4 mt-3">
+                            <li><%= link_to("Profile Picture ", edit_user_path(current_user.id), class: "") %></li>
+                        </ul>
                     <% end %>
-                    <ul class="list-disc ml-4 mt-3">
+                    <ul class="list-disc ml-4">
                         <% @req_doc.each do |att|%>
                             <li><%= link_to(att, new_user_doc_path(doc_type: att), class: "") %></li>
                         <% end %>
                     </ul>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
         </div>
     </div>
