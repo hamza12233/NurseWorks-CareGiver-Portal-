@@ -40,6 +40,12 @@ document.addEventListener("turbolinks:load", function() {
 document.addEventListener("turbolinks:load", function() {
   $(function () {
     require("packs/custom");
+    //localStorage  
+    $(".on-modal-close").on("click", function(){
+      $.ajax({
+        url: "users/closed_without_docs"
+      });
+    })
   })
 
   $(function(){

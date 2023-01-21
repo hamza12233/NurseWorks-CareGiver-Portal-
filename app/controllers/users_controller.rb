@@ -43,6 +43,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def closed_without_docs
+    session[:is_closed_without_docs] = true
+  end
+
   # GET /users/new
   def new
     @user = User.new

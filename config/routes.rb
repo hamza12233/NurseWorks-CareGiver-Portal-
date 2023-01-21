@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
+    get 'closed_without_docs', on: :collection
     get 'search', on: :collection
   end
 

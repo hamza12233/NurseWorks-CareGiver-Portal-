@@ -18,12 +18,12 @@
 
   <div class="field form-group display-none start-date">
     <%= form.label :start_date %>
-    <%= form.text_field :start_date, class: "form-control datepicker", autocomplete:"off", placeholder:"mm-dd-yyyy", required: true %>
+    <%= form.date_field :start_date, class: "form-control datepicker", required: true %>
   </div>
 
   <div class="field form-group end-date">
     <%= form.label :end_date %>
-     <%= form.text_field :end_date, class: "form-control datepicker", autocomplete:"off", placeholder:"mm-dd-yyyy", required: true %>
+     <%= form.date_field :end_date, class: "form-control datepicker", autocomplete:"off", placeholder:"mm-dd-yyyy", required: true %>
   </div>
 
   <div class="field" class="form-group">
