@@ -75,17 +75,29 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
 
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.perform_deliveries = true
 
-  LetterOpener.configure do |lconfig|
-    # To overrider the location for message storage.
-    # Default value is `tmp/letter_opener`
-    lconfig.location = Rails.root.join('tmp', 'my_mails')
+  # LetterOpener.configure do |lconfig|
+  #   # To overrider the location for message storage.
+  #   # Default value is `tmp/letter_opener`
+  #   lconfig.location = Rails.root.join('tmp', 'my_mails')
 
-    # To render only the message body, without any metadata or extra containers or styling.
-    # Default value is `:default` that renders styled message with showing useful metadata.
-    lconfig.message_template = :default
-  end
+  #   # To render only the message body, without any metadata or extra containers or styling.
+  #   # Default value is `:default` that renders styled message with showing useful metadata.
+  #   lconfig.message_template = :default
+  # end
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+
+  ActionMailer::Base.smtp_settings = {
+    domain:         ENV['DOMAIN'],
+    address:        "smtp.sendgrid.net",
+    port:            587,
+    authentication: :plain,
+    user_name:      'apikey',
+    password:       ENV['SENDGRID_API_KEY']
+  }
 
 end

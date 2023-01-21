@@ -101,10 +101,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = { host: "https://app.caremountain.com" }
 
   ActionMailer::Base.smtp_settings = {
-  domain: ENV['SUPPORT_EMAIL'],
+  domain:         ENV['DOMAIN'],
   address:        "smtp.sendgrid.net",
   port:            587,
   authentication: :plain,
