@@ -13,9 +13,9 @@
 
   <div class="field" class="form-group">
     <%= form.label :document_type %>
-    <%= form.select(:document_type_id, options_for_select((DocumentType.pluck(:name,:id) || UserDoc::TYPES), DocumentType.find_by(name: params[:doc_type]).id),{include_blank: "Select Document Type"}, {required: true, class: "form-control"}) %>
+    <%= form.select(:document_type_id, options_for_select((DocumentType.pluck(:name,:id) || UserDoc::TYPES), DocumentType.find_by(name: params[:doc_type])&.id ),{include_blank: "Select Document Type"}, {required: true, class: "form-control"}) %>
   </div>
-
+  <%= form.hidden_field :recover , value: params[:doc_type].present? %>
   <div class="field" class="form-group">
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control" %>

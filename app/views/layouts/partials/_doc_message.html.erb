@@ -34,7 +34,7 @@
         </div>
     <% elsif @ud.present? %>
         <button type="button" class="btn btn-primary" id="req-doc" data-toggle="modal" data-target="#docModal">
-        Required Documents
+            Required Documents
         </button>
 
         <div class="modal fade" id="docModal" data-show="true" tabindex="-1" role="dialog" data-focus="true" data-show="true" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel"
@@ -53,7 +53,7 @@
                                 <li><%= link_to("Profile Picture ", edit_user_doc_path(current_user.id), class: "") %></li>
                             <% end %>
                             <% @ud.each do |att|%>
-                                <li><%= link_to(( att.document_type.name || att.doc_type || att.id ), edit_user_doc_path(att), class: "") %></li>
+                                <li><%= link_to(( att.document_type.name || att.doc_type || att.id ), edit_user_doc_path(att, doc_type: att.document_type.name), class: "") %></li>
                             <% end %>
                         </ul>
                     </div>

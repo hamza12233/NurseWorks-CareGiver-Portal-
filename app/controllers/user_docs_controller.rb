@@ -87,6 +87,6 @@ class UserDocsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_doc_params
-      params.require(:user_doc).permit(:doc_type, :description, :attachment, :document_type_id)
+      params.require(:user_doc).permit(:doc_type, :description, :attachment, :document_type_id, :recover)
     end
 end
