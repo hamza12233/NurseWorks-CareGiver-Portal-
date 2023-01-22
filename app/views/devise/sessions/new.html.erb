@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}", class: "text-center" if msg.is_a?(String) %>
@@ -31,10 +32,11 @@
                                                 name="user[email]"
                                                 placeholder="Enter Email Address...">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group psss-show-hide">
                                             <input type="password" class="form-control form-control-user"
                                               name="user[password]"
                                               id="user_password" placeholder="Password">
+                                              <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span>
                                         </div>
                                         <div class="form-group">
                                                 <input type="checkbox"  

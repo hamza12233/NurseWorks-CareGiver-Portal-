@@ -19,6 +19,17 @@
  @import "./actiontext.scss";
  @import "simple_calendar";
 
+ .psss-show-hide{
+    position: relative;
+ }
+
+ .toggle-password{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+ }
+
  .modal-title-main{
     font-size: 20px;
     font-weight: bolder;

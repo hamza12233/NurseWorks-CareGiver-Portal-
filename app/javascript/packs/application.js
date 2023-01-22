@@ -46,6 +46,17 @@ document.addEventListener("turbolinks:load", function() {
         url: "users/closed_without_docs"
       });
     })
+
+    $("body").on('click', '.toggle-password', function() {
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      var input = $(".psss-show-hide input");
+      if (input.attr("type") === "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
+    
+    });
   })
 
   $(function(){
