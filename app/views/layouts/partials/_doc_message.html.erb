@@ -21,8 +21,8 @@
                             </ul>
                         <% end %>
                         <ul class="list-disc ml-4">
-                            <% @req_doc.each do |att|%>
-                                <li><%= link_to(att, new_user_doc_path(doc_type: att), class: "") %></li>
+                            <% @req_doc.each do |key,val|%>
+                                <li><%= link_to(val, new_user_doc_path(doc_type: key), class: "") %></li>
                             <% end %>
                         </ul>
                     </div>
