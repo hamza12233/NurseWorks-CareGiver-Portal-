@@ -104,13 +104,13 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = { host: "https://app.caremountain.com" }
 
-  ActionMailer::Base.smtp_settings = {
-  domain:         ENV['DOMAIN'],
+ActionMailer::Base.smtp_settings = {
+  domain:         'app.caremountain.com',
   address:        "smtp.sendgrid.net",
   port:            587,
   authentication: :plain,
   user_name:      'apikey',
-  password:       ENV['SENDGRID_API_KEY'],
+  password:       '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',
   enable_starttls_auto: true
 }
 
