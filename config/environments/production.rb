@@ -110,7 +110,7 @@ config.action_mailer.smtp_settings = {
   port:            587,
   authentication: :plain,
   user_name:      'apikey',
-  password:       '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',
+  password:       ENV['SENDGRID_API_KEY'],
   enable_starttls_auto: true
 }
 

@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'support@caremountain.com'
+  default from: ENV['SUPPORT_EMAIL']
   layout 'mailer'
 end
