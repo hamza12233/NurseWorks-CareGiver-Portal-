@@ -317,7 +317,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.4.4)
   bootstrap-datepicker-rails
-  bootstrap4-kaminari-views
+  bootstrap4-kaminari-views (~> 1.0, >= 1.0.1)
   byebug
   cancancan
   capistrano

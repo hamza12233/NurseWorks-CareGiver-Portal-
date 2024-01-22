@@ -31,7 +31,7 @@ gem 'daemons'
 gem 'whenever', require: false
 gem 'roo'
 gem 'kaminari'
-gem 'bootstrap4-kaminari-views'
+gem 'bootstrap4-kaminari-views', '~> 1.0', '>= 1.0.1'
 gem 'rexml'
 gem 'exception_notification'
 gem "simple_calendar", "~> 2.4"
