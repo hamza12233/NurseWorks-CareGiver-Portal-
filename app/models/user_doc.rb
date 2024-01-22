@@ -9,6 +9,7 @@ class UserDoc < ApplicationRecord
         "Jury duty notification",
         "Covid vaccine appt",
         "Texas state benefits",
+        "Medical Assistant",
         "Other"
     ]
 

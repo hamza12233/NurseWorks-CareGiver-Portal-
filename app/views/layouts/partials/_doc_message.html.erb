@@ -1,8 +1,8 @@
     
-<% unless session[:is_closed_without_docs]%>
+<% unless session[:is_closed_without_docs] %>
     <% if (@req_dp.present? || @req_doc.present?) %>
-        <button type="button" class="btn btn-primary" id="req-doc" data-toggle="modal" data-target="#docModal">
-            Required Documents
+        <button type="button" class="btn btn-danger" id="req-doc" data-toggle="modal" data-target="#docModal">
+            Submit Required Documents
         </button>
 
         <div class="modal fade" id="docModal" data-show="true" tabindex="-1" role="dialog" data-focus="true" data-show="true" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel"
