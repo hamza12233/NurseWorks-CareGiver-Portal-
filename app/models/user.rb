@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   attr_accessor :start_date, :end_date
   
   validates :first_name, :last_name, :email, :phone, presence: true
