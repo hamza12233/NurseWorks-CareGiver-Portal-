@@ -110,7 +110,7 @@ mark,
 
 // Blockquotes
 .blockquote {
-  margin-bottom: $spacer;
+  margin-bottom: math.div($spacer);
   @include font-size($blockquote-font-size);
 }
 
