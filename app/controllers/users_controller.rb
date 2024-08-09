@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     order_by += " " + dir
     @dir = (dir == "asc") ? "desc" : "asc"
 
-    type_id = SupportRequestType.find_by(alias: "time off notification").id
+    type_id = SupportRequestType.find_by(alias: "time off notification")&.id
     start_date = params.fetch(:start_date, Date.today).to_date
 
     if (params["user"] && params["user"]["start_date"] && params["user"]["end_date"]).present?
