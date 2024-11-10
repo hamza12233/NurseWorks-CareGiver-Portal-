@@ -19,7 +19,7 @@
         <td><%= user_doc.id %></td>
         <td><%= link_to user_doc.document_type.name, user_doc %></td>
         <td class="d-none d-sm-table-cell"><%= link_to "Download", rails_blob_url(user_doc.attachment, disposition: "attachment") if user_doc.attachment.attached? %></td>
-        <td><%= user_doc.user.full_name %></td>
+        <td><%= user_doc&.user&.full_name || '-' %></td>
         <td class="d-none d-sm-table-cell"><%= user_doc.updated_at.strftime("%m-%d-%Y") %></td>
         <td>
           <%= link_to 'Edit', edit_user_doc_path(user_doc), class: "btn btn-primary btn-sm" %>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   ROLES = ["User", "Manager", "Super User"]
+  ADMIN_ROLES = ["Super User", "Manager"]
 
   has_many :support_requests, dependent: :delete_all
   has_many :user_docs, dependent: :delete_all

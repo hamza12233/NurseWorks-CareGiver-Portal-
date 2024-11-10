@@ -13,7 +13,7 @@
 
   <div class="field" class="form-group">
     <%= form.label :document_type %>
-    <%= form.select(:document_type_id, options_for_select((DocumentType.pluck(:name,:id) || UserDoc::TYPES), DocumentType.find_by(name: params[:doc_type])&.id ),{include_blank: "Select Document Type"}, {required: true, class: "form-control"}) %>
+    <%= form.select(:document_type_id, options_for_select((DocumentType.pluck(:name,:id) || UserDoc::TYPES), user_doc.document_type_id ),{include_blank: "Select Document Type"}, {required: true, class: "form-control"}) %>
   </div>
   <%= form.hidden_field :recover , value: params[:doc_type].present? %>
   <div class="field" class="form-group">
@@ -21,9 +21,17 @@
     <%= form.text_area :description, class: "form-control" %>
   </div>
 
+  <% if User::ADMIN_ROLES.include?(current_user.role) %>
+    <div class="field" class="form-group">
+      <%= form.label :user %>
+      <%= form.select(:user_id, options_for_select((User.all.pluck(:first_name,:id)), user_doc.user_id),{include_blank: "Select User"}, {required: true, class: "form-control"}) %>
+    </div>
+  <% end %>
+
   <div class="field" class="form-group">
+    <% required_condition = User::ADMIN_ROLES.include?(current_user.role) ? {} :  { required: true } %>
     <%= form.label :attachment %>
-    <%= form.file_field :attachment, required: true, class: "form-control" %>
+    <%= form.file_field :attachment, class: "form-control", **required_condition %>
   </div>
 
 

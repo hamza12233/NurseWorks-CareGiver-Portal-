@@ -11,7 +11,8 @@ class UserDocsController < ApplicationController
     order_by = params[:order_by] || "user_docs.id"
     order_by += " " + dir
     @dir = (dir == "desc") ? "asc" : "desc"
-    @user_docs = @user_docs.includes(:user).order(order_by)
+    where_condition = User::ADMIN_ROLES.include?(current_user.role) ? {} : { user: current_user }
+    @user_docs = @user_docs.where(where_condition).includes(:user).order(order_by)
   end
 
   def search
@@ -40,11 +41,10 @@ class UserDocsController < ApplicationController
   # POST /user_docs or /user_docs.json
   def create
     @user_doc = UserDoc.new(user_doc_params)
-    @user_doc.user_id = current_user.id
 
     respond_to do |format|
       if @user_doc.save
-        format.html { redirect_to @user_doc, notice: "User document was successfully created." }
+        format.html { redirect_to action: :index, notice: "User document was successfully created." }
         format.json { render :show, status: :created, location: @user_doc }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -87,6 +87,7 @@ class UserDocsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_doc_params
-      params.require(:user_doc).permit(:doc_type, :description, :attachment, :document_type_id, :recover)
+      user_id_condition = User::ADMIN_ROLES.include?(current_user.role) ? [:user_id] : []
+      params.require(:user_doc).permit(:doc_type, :description, :attachment, :document_type_id, :recover, *user_id_condition)
     end
 end

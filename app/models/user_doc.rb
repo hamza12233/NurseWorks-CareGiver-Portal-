@@ -15,7 +15,7 @@ class UserDoc < ApplicationRecord
 
     validates_presence_of :attachment, message: "required"
 
-    belongs_to :user
+    belongs_to :user, optional: true
     belongs_to :document_type
     has_one_attached :attachment
 
