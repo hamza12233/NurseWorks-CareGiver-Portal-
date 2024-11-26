@@ -24,7 +24,6 @@ development:
   database: NurseWorks_development
   # database: <%= ENV['CYPRESS'] ? 'NurseWorks_Test' : 'NurseWorks_Dev' %>
 
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -37,10 +36,9 @@ staging:
   password: password
   database: NurseWorks_Staging
 
-
 production:
   <<: *default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV.fetch('CLEARDB_DATABASE_URL') %>
+  url: <%= ENV.fetch('DATABASE_URL') %>
