@@ -41,6 +41,7 @@ class UserDocsController < ApplicationController
   # POST /user_docs or /user_docs.json
   def create
     @user_doc = UserDoc.new(user_doc_params)
+    @user_doc.user_id = current_user.role === "User" ? current_user.id : @user_doc.user_id
 
     respond_to do |format|
       if @user_doc.save
