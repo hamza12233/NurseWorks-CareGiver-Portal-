@@ -1,12 +1,10 @@
-    
 <% unless session[:is_closed_without_docs] %>
     <% if (@req_dp.present? || @req_doc.present?) %>
-        <button type="button" class="btn btn-danger" id="req-doc" data-toggle="modal" data-target="#docModal">
+        <button type="button" class="btn btn-danger" id="req-doc" data-bs-toggle="modal" data-bs-target="#docModal">
             Submit Required Documents
         </button>
 
-        <div class="modal fade" id="docModal" data-show="true" tabindex="-1" role="dialog" data-focus="true" data-show="true" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="docModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header justify-content-center">
@@ -27,18 +25,17 @@
                         </ul>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary on-modal-close" data-dismiss="modal">Close</button>
-                </div>
+                        <button type="button" class="btn btn-secondary on-modal-close" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
     <% elsif @ud.present? %>
-        <button type="button" class="btn btn-primary" id="req-doc" data-toggle="modal" data-target="#docModal">
+        <button type="button" class="btn btn-primary" id="req-doc" data-bs-toggle="modal" data-bs-target="#docModal">
             Required Documents
         </button>
 
-        <div class="modal fade" id="docModal" data-show="true" tabindex="-1" role="dialog" data-focus="true" data-show="true" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="docModal" tabindex="-1" role="dialog" data-bs-show="true" data-bs-focus="true" data-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header justify-content-center">
